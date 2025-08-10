@@ -3,7 +3,7 @@ import profile from '../assets/images/jbantay_profpic.png';
 export default function Header() {
   return (
     <header className="py-6 flex flex-col items-center gap-6 md:flex-row md:items-center md:justify-between">
-      {/* Left side: profile + name */}
+      {/* Left: profile + name */}
       <div className="flex items-center gap-4">
         <img
           src={profile}
@@ -18,7 +18,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Right side: navigation */}
+      {/* Right: navigation */}
       <nav className="text-sm">
         <ul className="flex gap-4">
           <li>
