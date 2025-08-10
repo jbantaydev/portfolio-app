@@ -1,17 +1,11 @@
 export default function About() {
   return (
-    <section
-      id="about"
-      className="scroll-mt-24 py-8 md:py-12"
-      style={{ padding: '2rem 0' }}
-    >
-      <h2>About</h2>
-      <p>
-        I am a senior level software engineer and full stack developer with over 6 years
-        of experience in delivering high-quality software solutions. Lorem ipsum dolor sit
-        amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Cras
-        placerat, nunc a tincidunt tincidunt, nunc nisl aliquet nunc, eget tincidunt nisl
-        nunc eget nunc.
+    <section id="about" className="py-10">
+      <h2 className="text-2xl font-semibold">About</h2>
+      <p className="mt-3 leading-7 text-gray-700">
+        I am a software engineer focused on backend APIs and data workflows, currently
+        expanding my UI skills with React. I have hands-on experience with Node.js,
+        PHP/Yii2, PostgreSQL, RabbitMQ, and AWS services like S3, SQS, and Lambda.
       </p>
     </section>
   );
