@@ -1,6 +1,10 @@
 export default function About() {
   return (
-    <section id="about" className="scroll-mt-24 py-8" style={{ padding: '2rem 0' }}>
+    <section
+      id="about"
+      className="scroll-mt-24 py-8 md:py-12"
+      style={{ padding: '2rem 0' }}
+    >
       <h2>About</h2>
       <p>
         I am a senior level software engineer and full stack developer with over 6 years
