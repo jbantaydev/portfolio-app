@@ -24,6 +24,7 @@ module.exports = {
         argsIgnorePattern: '^_',
       },
     ],
+    'linebreak-style': ['error', 'unix'],
   },
   settings: { react: { version: 'detect' } },
   ignorePatterns: ['dist', 'node_modules'],
