@@ -6,7 +6,7 @@ import Projects from './components/Projects.jsx';
 
 export default function App() {
   return (
-    <div style={{ fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
+    <div className="max-w-8xl mx-auto px-4">
       <Header />
       <About />
       <Projects />

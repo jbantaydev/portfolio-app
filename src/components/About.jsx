@@ -1,11 +1,18 @@
+import { useQuery } from '../lib/useQuery';
+
+/**
+ * About component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function About() {
+  const { data, error, loading } = useQuery('/about');
+
   return (
-    <section id="about" style={{ padding: '2rem 0' }}>
-      <h2>About</h2>
-      <p>
-        I am a senior level software engineer and full stack developer with over 6 years
-        of experience in delivering high-quality software solutions.
-      </p>
+    <section>
+      <h2 className="text-2xl font-semibold">About</h2>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && data[0] && <p>{data[0].bio}</p>}
     </section>
   );
 }
