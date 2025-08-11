@@ -1,13 +1,18 @@
+import { useQuery } from '../lib/useQuery';
+
+/**
+ * About component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function About() {
+  const { data, error, loading } = useQuery('/about');
+
   return (
-    <section id="about" className="py-10">
+    <section>
       <h2 className="text-2xl font-semibold">About</h2>
-      <p className="mt-3 leading-7 text-gray-700">
-        I am a software engineer focused on backend APIs and data workflows, currently
-        expanding my UI skills with React. I have hands-on experience with Node.js,
-        PHP/Yii2, PostgreSQL, RabbitMQ, and AWS services like S3, SQS, and Lambda. I care
-        about reliability, clean interfaces, and fast feedback loops in development.
-      </p>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && data[0] && <p>{data[0].bio}</p>}
     </section>
   );
 }

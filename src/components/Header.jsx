@@ -1,5 +1,9 @@
 import profile from '../assets/images/jbantay_profpic.png';
 
+/**
+ * Header component.
+ * @returns {JSX.Element} - The rendered component.
+ */
 export default function Header() {
   return (
     <header className="py-6 flex flex-col items-center gap-6 md:flex-row md:items-center md:justify-between">
