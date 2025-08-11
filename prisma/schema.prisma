@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum TechType {
+  proglang
+  framework
+  database
+}
+
+model Tech {
+  id          Int      @id @default(autoincrement())
+  techName   String   @unique
+  techType  TechType
+  description String
+  url         String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // relations
+  projects    ProjectTech[]
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  url         String?
+  tags        String[]  @default([])
+  // Optional: SEO-friendly link
+  slug        String?   @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  // relations
+  techs       ProjectTech[]
+
+  @@index([createdAt])
+}
+
+model ProjectTech {
+  // Option A: composite primary key (preferred for join tables)
+  projectId Int
+  techId    Int
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  tech      Tech    @relation(fields: [techId], references: [id], onDelete: Cascade)
+
+  @@id([projectId, techId])       // composite PK
+  @@index([projectId])
+  @@index([techId])
+  // (If you prefer to keep a separate id column, drop @@id and add: @@unique([projectId, techId]))
+}
+
+model About {
+  // If singleton, you can set id default(1) and always upsert id=1
+  id        Int      @id @default(1)
+  bio       String
+  avatarUrl String?
+  updatedAt DateTime @updatedAt
+}
+
+model Contact {
+  id        Int      @id @default(1)
+  email     String
+  linkedin  String?
+  github    String?
+  updatedAt DateTime @updatedAt
+}
