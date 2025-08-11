@@ -1,6 +1,13 @@
-import { setCORSHeaders } from '../src/lib/cors';
+import { setCORSHeaders } from '../src/lib/cors.js';
 
-export default function handler(req, res) {
+/**
+ * `Status` API handler.
+ * @param {*} req - The request object.
+ * @param {*} res - The response object.
+ * @returns
+ */
+export default async function handler(req, res) {
+  // Set CORS headers
   setCORSHeaders(res);
   if (req.method === 'OPTIONS') {
     res.writeHead(200);
