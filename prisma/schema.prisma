@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -70,5 +69,6 @@ model Contact {
   email     String
   linkedin  String?
   github    String?
+  mobileNum String?
   updatedAt DateTime @updatedAt
 }
