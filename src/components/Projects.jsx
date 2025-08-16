@@ -19,7 +19,9 @@ export default function Projects() {
         <ul className="mt-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {data.map((project) => (
             <li key={project.id} className="p-4 rounded-lg border hover:shadow">
-              <h3 className="font-semibold">{project.title}</h3>
+              <h3 className="font-semibold hover:text-blue-500 transition-colors duration-500">
+                {project.title}
+              </h3>
               <p className="text-sm text-gray-600 mt-1">{project.description}</p>
               {project.techs && project.techs.length > 0 && (
                 <div className="mt-2">

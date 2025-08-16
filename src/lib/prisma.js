@@ -1,16 +1,17 @@
 import { PrismaClient } from '@prisma/client';
 
-let prisma;
-
-if (process.env.NODE_ENV === 'production') {
-  // In production, create a new PrismaClient instance
-  prisma = new PrismaClient();
-} else {
-  // In development, reuse the same instance to avoid exhausting the connection limit
-  if (!global.prisma) {
-    global.prisma = new PrismaClient();
-  }
-  prisma = global.prisma;
+/**
+ * Global Prisma Client instance.
+ * Reused in development to avoid exhausting the connection limit.
+ */
+const globalForPrisma = globalThis;
+if (!globalForPrisma._prisma) {
+  globalForPrisma._prisma = new PrismaClient(
+    process.env.NODE_ENV !== 'production'
+      ? { log: ['error', 'warn'] } // add 'query' if you need debugging
+      : undefined
+  );
 }
 
+const prisma = globalForPrisma._prisma;
 export default prisma;
