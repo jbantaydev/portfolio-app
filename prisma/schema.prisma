@@ -11,6 +11,7 @@ enum TechType {
   proglang
   framework
   database
+  deployment
 }
 
 model Tech {
