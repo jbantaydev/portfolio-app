@@ -6,12 +6,5 @@
       "includeFiles": "prisma/schema.prisma"
     }
   },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-  "redirects": [
-    {
-      "source": "/(.*)",
-      "destination": "https://portfolio.jbantay.work/$1",
-      "permanent": true
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
